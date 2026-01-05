@@ -72,7 +72,7 @@ export const content: ContentConfig = {
     seo: {
         title: "SB Odonto - Sorrisos que Transformam Vidas",
         description: "Clínica Odontológica Especializada em Implantes, Lentes de Contato e Estética Avançada em Campinas.",
-        domain: "https://sbodonto.netlify.app",
+        domain: "https://sbodontologia.netlify.app",
         path: "/",
         themeColor: "#0ea5e9",
         keywords: "dentista, implantes, lentes de contato dental, odontologia estética, clareamento, campinas",
