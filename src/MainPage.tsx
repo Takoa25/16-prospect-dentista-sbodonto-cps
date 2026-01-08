@@ -14,7 +14,12 @@ import Footer from './components/Footer';
 import StickyNavbar from './components/StickyNavbar';
 import { content } from './Content';
 
-const MainPage: React.FC = () => {
+interface MainPageProps {
+    onNavigateToPrivacy: () => void;
+    onNavigateToTerms: () => void;
+}
+
+const MainPage: React.FC<MainPageProps> = ({ onNavigateToPrivacy, onNavigateToTerms }) => {
     // Inject CSS color variables dynamically from Content.ts
     useEffect(() => {
         const root = document.documentElement;
@@ -53,7 +58,7 @@ const MainPage: React.FC = () => {
                         <FAQ />
                         <Location />
                     </main>
-                    <Footer />
+                    <Footer onPrivacyClick={onNavigateToPrivacy} onTermsClick={onNavigateToTerms} />
                 </div>
             </ReactLenis>
         </HelmetProvider>

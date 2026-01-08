@@ -1,10 +1,39 @@
 import React from 'react';
-import { Instagram, Facebook, Youtube, MapPin, Phone, Mail } from 'lucide-react';
+import { Instagram, Facebook, Youtube, MapPin, Phone, Mail, Heart, Coffee } from 'lucide-react';
 import { FaGem } from 'react-icons/fa';
+import { GiCoffeeCup } from 'react-icons/gi';
 import { content } from '../Content';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+    onPrivacyClick: () => void;
+    onTermsClick: () => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onPrivacyClick, onTermsClick }) => {
     const { footer, infos, navbar, images } = content;
+
+    const handlePolicyClick = (e: React.MouseEvent, label: string) => {
+        e.preventDefault();
+        if (label === "Política de Privacidade") {
+            onPrivacyClick();
+        } else if (label === "Termos de Uso") {
+            onTermsClick();
+        }
+    };
+    // ... (skipping some lines)
+    // inside the map:
+    {
+        footer.policies.map((policy, index) => (
+            <a
+                key={index}
+                href={policy.href}
+                onClick={(e) => handlePolicyClick(e, policy.label)}
+                className="text-neutral-500 hover:text-primary transition-colors cursor-pointer"
+            >
+                {policy.label}
+            </a>
+        ))
+    }
 
     if (!footer.enabled) return null;
 
@@ -21,7 +50,7 @@ const Footer: React.FC = () => {
     };
 
     return (
-        <footer className="w-full bg-neutral-900 text-white pt-16 pb-8" id="contact">
+        <footer className="w-full bg-black text-white pt-16 pb-8 relative z-10" id="contact">
             <div className="container-custom">
                 {/* Main Footer Content */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
@@ -76,7 +105,10 @@ const Footer: React.FC = () => {
                                 <li key={index}>
                                     <a
                                         href={link.href}
-                                        onClick={link.label === "Contato" ? handleContactClick : undefined}
+                                        onClick={(e) => {
+                                            if (link.label === "Contato") handleContactClick(e);
+                                            // Se tiver algum link de política aqui também
+                                        }}
                                         className="text-neutral-400 hover:text-primary transition-colors font-inter cursor-pointer"
                                     >
                                         {link.label}
@@ -137,7 +169,8 @@ const Footer: React.FC = () => {
                                 <a
                                     key={index}
                                     href={policy.href}
-                                    className="text-neutral-500 hover:text-primary transition-colors"
+                                    onClick={(e) => handlePolicyClick(e, policy.label)}
+                                    className="text-neutral-500 hover:text-primary transition-colors cursor-pointer"
                                 >
                                     {policy.label}
                                 </a>
@@ -145,19 +178,22 @@ const Footer: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Developer Credit */}
                     <div className="mt-6 text-center">
-                        <p className="text-neutral-600 text-xs">
-                            {footer.developedBy}
+                        <div className="text-neutral-600 text-xs flex items-center justify-center gap-1.5 font-medium">
+                            <span>Desenvolvido com</span>
+                            <Heart size={13} className="text-red-500 fill-red-500" />
+                            <span>&</span>
+                            <GiCoffeeCup size={15} className="text-amber-600" />
+                            <span>pela</span>
                             <a
                                 href={footer.developerUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-neutral-600 hover:text-primary font-bold"
+                                className="text-neutral-600 hover:text-primary font-bold transition-colors"
                             >
                                 {footer.developerName}
                             </a>
-                        </p>
+                        </div>
                     </div>
                 </div>
             </div>

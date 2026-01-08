@@ -1,4 +1,4 @@
-# Soares & Faria Odontologia - Website Institucional e Landing Page
+# SB Odonto - Website Institucional e Landing Page
 
 Template moderno, elegante e de alta performance para clínicas odontológicas, com arquitetura white-label totalmente configurável via `Content.ts`.
 
@@ -20,14 +20,18 @@ npm run build
 ```
 /
 ├── src/
-│   ├── components/          # Componentes React (Hero, About, Team, etc.)
-│   ├── Content.ts          # ⭐ CONFIGURAÇÃO PRINCIPAL (Cores, Textos, Imagens)
-│   ├── types.ts            # TypeScript interfaces
-│   ├── index.css           # CSS global + variáveis sincronizadas
-│   └── MainPage.tsx        # Layout principal e fluxo da página
+│   ├── components/          
+│   │   ├── PrivacyPolicy.tsx   # Nova Página
+│   │   ├── TermsOfUse.tsx      # Nova Página
+│   │   ├── CookieConsent.tsx   # Banner LGPD
+│   │   └── ... (Hero, About, Team)
+│   ├── Content.ts           # ⭐ CONFIGURAÇÃO PRINCIPAL
+│   ├── types.ts            
+│   ├── index.css           
+│   └── MainPage.tsx        
 ├── public/
-│   └── images/            # Pasta central de imagens (WebP otimizado)
-├── App.tsx
+│   └── images/             # Imagens Otimizadas (WebP)
+├── App.tsx                 # Roteamento SPA
 ├── main.tsx
 └── index.html
 ```
@@ -49,9 +53,9 @@ export const content: ContentConfig = {
   
   // Informações da clínica
   infos: {
-    name: "Soares & Faria Odontologia",
-    phone: "(19) 99563-2393",
-    whatsapp: "5519995632393",
+    name: "SB Odonto",
+    phone: "(19) 3266-2078",
+    whatsapp: "5519998705599",
     // ...
   },
   
