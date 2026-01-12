@@ -1,6 +1,6 @@
 import React from 'react';
 import { Instagram, Facebook, Youtube, MapPin, Phone, Mail, Heart, Coffee } from 'lucide-react';
-import { FaGem } from 'react-icons/fa';
+import { FaTooth } from 'react-icons/fa';
 import { GiCoffeeCup } from 'react-icons/gi';
 import { content } from '../Content';
 
@@ -62,7 +62,7 @@ const Footer: React.FC<FooterProps> = ({ onPrivacyClick, onTermsClick }) => {
                             ) : (
                                 <div className="flex items-center gap-3">
                                     <div className="w-10 h-10 bg-white flex items-center justify-center rounded-lg">
-                                        <FaGem className="w-5 h-5" style={{ fill: 'black', stroke: 'white', strokeWidth: '2px' }} />
+                                        <FaTooth className="w-5 h-5" style={{ fill: 'black', stroke: 'black', strokeWidth: '2px' }} />
                                     </div>
                                     <span className="font-bebas text-4xl text-white tracking-wide">
                                         {navbar.logoText}
