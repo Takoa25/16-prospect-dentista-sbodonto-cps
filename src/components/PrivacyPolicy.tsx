@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { content } from '../Content';
 import { ArrowLeft, ArrowUp } from 'lucide-react';
 import { cn } from '../lib/utils';
@@ -9,6 +9,10 @@ interface PrivacyPolicyProps {
 
 const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onBack }) => {
     const { infos, seo } = content;
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });

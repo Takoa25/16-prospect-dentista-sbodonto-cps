@@ -10,17 +10,17 @@ const App: React.FC = () => {
 
   const handleNavigateToPrivacy = () => {
     setCurrentView('privacy');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   const handleNavigateToTerms = () => {
     setCurrentView('terms');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   const handleNavigateHome = () => {
     setCurrentView('home');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   return (

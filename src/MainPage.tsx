@@ -20,8 +20,9 @@ interface MainPageProps {
 }
 
 const MainPage: React.FC<MainPageProps> = ({ onNavigateToPrivacy, onNavigateToTerms }) => {
-    // Inject CSS color variables dynamically from Content.ts
+    // Inject CSS color variables dynamically from Content.ts & Reset Scroll
     useEffect(() => {
+        window.scrollTo(0, 0);
         const root = document.documentElement;
         root.style.setProperty('--color-primary', content.colors.primary);
         root.style.setProperty('--color-primary-dark', content.colors.primaryDark);
